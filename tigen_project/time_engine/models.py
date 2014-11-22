@@ -13,18 +13,23 @@ class Plan(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     user = models.ForeignKey(User)
-    lesson_count = models.IntegerField()
-    has_monday = models.BooleanField()
-    has_tuesday = models.BooleanField()
-    has_wednesday = models.BooleanField()
-    has_thursday = models.BooleanField()
-    has_friday = models.BooleanField()
-    has_saturday = models.BooleanField()
-    has_sunday = models.BooleanField()
+    lesson_count = models.IntegerField(default=False)
+    has_saturday = models.BooleanField(default=0)
+    has_monday = models.BooleanField(default=False)
+    has_tuesday = models.BooleanField(default=False)
+    has_wednesday = models.BooleanField(default=False)
+    has_thursday = models.BooleanField(default=False)
+    has_friday = models.BooleanField(default=False)
+    has_sunday = models.BooleanField(default=False)
+
+    def __unicode__(self):
+        return self.name
 
 
-class PlanResults(models.Model):
+class PlanResult(models.Model):
     lesson_no = models.IntegerField()
     lesson_date = models.DateField()
     plan = models.ForeignKey(Plan)
+
+
 
