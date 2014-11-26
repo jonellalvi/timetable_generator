@@ -13,7 +13,7 @@ class Plan(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(null=True, blank=True)
     user = models.ForeignKey(User)
-    lesson_count = models.IntegerField(default=False)
+    lesson_count = models.IntegerField(default=0)
     has_saturday = models.BooleanField(default=0)
     has_monday = models.BooleanField(default=False)
     has_tuesday = models.BooleanField(default=False)
