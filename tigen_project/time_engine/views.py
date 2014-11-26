@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from time_engine.models import Plan
+from json import dumps
 
 
 # Each view is it's own function.
@@ -27,6 +28,21 @@ def index(request):
     return render_to_response('time_engine/index.html', context_dict, context)
     #return HttpResponse("Hello World! You're at the Time Engine Index! Woot!")
 
+
+def ajax(request):
+    plan_list = list(Plan.objects.all())
+    ajax_list = []
+    for thing in plan_list:
+        ajax_list.append({
+            "name": thing.name,
+            "user": str(thing.user),
+            "creation_date": str(thing.creation_date),
+        })
+    return HttpResponse(dumps(ajax_list), content_type="application/json")
+
+
+
+
 def options(request):
     return HttpResponse("This is the Preferences page.")
 
@@ -35,3 +51,6 @@ def engine(request):
 
 def results(request):
     return HttpResponse("This is the results page.")
+
+
+

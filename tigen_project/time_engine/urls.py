@@ -3,6 +3,7 @@ from time_engine import views
 
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
+        url(r'^ajax/', views.ajax, name='ajax'),
         # /options/
         url(r'^options/$', views.options, name='options'),
         # /engine/
