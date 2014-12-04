@@ -2,6 +2,7 @@
 from django.http import HttpResponse
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.shortcuts import render
 from time_engine.models import Plan
 from json import dumps
 
@@ -37,11 +38,18 @@ def ajax(request):
             "name": thing.name,
             "user": str(thing.user),
             "creation_date": str(thing.creation_date),
+            "lesson_count": thing.lesson_count,
         })
-    return HttpResponse(dumps(ajax_list), content_type="application/json")
+    return HttpResponse(dumps(ajax_list, indent=4), content_type="application/json")
+
+def dom(request):
+    return render(request, 'time_engine/dom.html')
 
 
-
+# a simple view that doesn't involve any data being passed along
+# for example an about page
+# def dom(request):
+#    return render(request, 'time_engine/dom.html')
 
 def options(request):
     return HttpResponse("This is the Preferences page.")

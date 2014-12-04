@@ -3,6 +3,7 @@
 
     <head>
         <title>Time Engine</title>
+
     </head>
 
     <body>
@@ -11,20 +12,20 @@
         <a href="/time_engine/options/">Options</a><br />
 
            {% if allplans %}
-            <ul>
+            <ul id="list">
                 {% for plan in allplans %}
-                <!-- Following line changed to add an HTML hyperlink -->
-                <li>Name: {{ plan.name }}</li>
-                <li>User: {{ plan.user }}</li>
-                <li>Date Created: {{ plan.creation_date }}</li>
-                <li>Plan Start Date: {{ plan.start_date }}</li>
-                <li>Number of Lessons: {{ plan.lesson_count }}</li>
-
+                    <li>Name: {{ plan.name }}</li>
+                    <li>User: {{ plan.user }}</li>
+                    <li>Date Created: {{ plan.creation_date }}</li>
+                    <li>Plan Start Date: {{ plan.start_date }}</li>
+                    <li>Number of Lessons: {{ plan.lesson_count }}</li>
                 {% endfor %}
             </ul>
        {% else %}
             <strong>There are no Plans present.</strong>
        {% endif %}
+
+
 
 
     </body>

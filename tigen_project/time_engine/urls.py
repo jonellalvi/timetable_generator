@@ -9,5 +9,7 @@ urlpatterns = patterns('',
         # /engine/
         url(r'^engine/$', views.engine, name='engine'),
         # /results/
-        url(r'results/$', views.results, name='results')
+        url(r'results/$', views.results, name='results'),
+        # dom
+        url(r'dom/$', views.dom, name='dom')
         )
