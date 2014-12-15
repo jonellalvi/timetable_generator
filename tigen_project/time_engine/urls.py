@@ -11,5 +11,6 @@ urlpatterns = patterns('',
         # /results/
         url(r'results/$', views.results, name='results'),
         # dom
-        url(r'dom/$', views.dom, name='dom')
+        url(r'dom/$', views.dom, name='dom'),
+        url(r'jsexample/$', views.jsexample, name='jsexample'),
         )
